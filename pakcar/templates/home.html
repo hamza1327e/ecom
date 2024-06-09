@@ -191,7 +191,22 @@
                     </div>
                 </div>
                 <!-- ***** Main Banner Area End ***** -->
-            
+
+                <div class="container-fluid">   
+                  <div class="row mx-auto">
+                      {% for product in products %}
+                      <div class="card mx-auto" style="width: 18rem;">
+                          <img src="{{ product.image.url }}" class="card-img-top" alt="...">
+                          <div class="card-body">
+                              <h5 class="card-title">{{ product.name }}</h5>
+                              <p class="card-text"><b>{{ product.price }}</b></p>
+                              <a href="{% url 'order_page' product.id %}" class="btn btn-primary border btn-sm">Buy</a>
+                          </div>
+                      </div>
+                      {% endfor %}
+                   </div>
+                </div>
+
                 <!-- ***** Men Area Starts ***** -->
                 <!-- ***** Subscribe Area Ends ***** -->
                 

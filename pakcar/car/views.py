@@ -10,7 +10,11 @@ from django.utils import timezone
 
 
 def HomePage(request):
-    return render(request, 'home.html')
+    products = Product.get_all_products()
+    data={'products':products}
+    return render(request, 'home.html',data)
+    
+    
 
 
 def SignupPage(request):

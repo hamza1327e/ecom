@@ -1,11 +1,9 @@
 from django.contrib import admin
-
-# Register your models here.
 from car.models import Contact, Product, Category, Order
 
 
 class AdminProduct(admin.ModelAdmin):
-    list_display = ['name', 'price', 'category']
+    list_display = ['name', 'price', 'category','created_at','updated_at']
 
 
 class AdminCategory(admin.ModelAdmin):

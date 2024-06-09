@@ -31,7 +31,8 @@ class Product(models.Model):
     description = models.CharField(
         max_length=200, default='', null=True, blank=True)
     image = models.ImageField(upload_to='uploads/products/')
-
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
     @staticmethod
     def get_all_products():
         return Product.objects.all()
@@ -42,6 +43,10 @@ class Product(models.Model):
             return Product.objects.filter(category=category_id)
         else:
             return Product.get_all_products()
+    class Meta:
+        verbose_name=('Product')
+        verbose_name_plural=('Add products')
+        ordering=('-updated_at',)
 
 
 class Order(models.Model):
